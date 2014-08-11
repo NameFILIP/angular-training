@@ -8,6 +8,8 @@
  * Controller of the teamManagementApp
  */
 angular.module('teamManagementApp')
-  .controller('TableCtrl', function ($scope) {
-    
-  });
+  .controller('TableCtrl', ['$scope', 'EmployeeService', function ($scope, EmployeeService) {
+    EmployeeService.query(function (result) {
+      $scope.employees = result;
+    });
+  }]);

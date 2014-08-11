@@ -1,1 +1,27 @@
-table
+<div class="form-inline filter-form">
+  <div class="form-group">
+    <label for="filter" class="sr-only">Filter</label>
+    <input type="text" id="filter" class="form-control" ng-model="filter" placeholder="Filter">
+  </div>
+</div>
+
+<table class="table table-bordered table-hover">
+  <tr>
+    <!-- <th class="hidden">Id</th> -->
+    <th>Name</th>
+    <th>Job title</th>
+    <th>Age</th>
+    <th>Grade</th>
+  </tr>
+  <tr ng-repeat="emp in employees | filter:filter">
+<!--     <td class="hidden">{{ emp.id }}</td> -->
+    <td>{{ emp.name }}</td>
+    <td>{{ emp.job }}</td>
+    <td>{{ emp.age }}</td>
+    <td>{{ emp.grade }}</td>
+  </tr>
+  <tr class="hidden">
+    <td colspan="4">Reviews</td>
+  </tr>
+
+</table>
