@@ -1,3 +1,7 @@
+html {
+  overflow-y: scroll;
+}
+
 .app-nav li:first-child {
   margin-left: 20px;
 }
