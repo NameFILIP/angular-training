@@ -47,12 +47,12 @@ describe('EmployeeService', function () {
 
 
   it('should send a query request and get valid results', function () {
-    httpBackend.expectGET('http://localhost:9000/data/staff.json').respond(mockData);
+    httpBackend.expectGET('/data/staff.json').respond(mockData);
     EmployeeService.query(function (result) {
       expect(result.length).toBe(3);
       expect(result[0].name).toEqual('Dmitry Lemlekh');
       expect(result[1].job).toEqual('Java Developer');
-      expect(result[2].age).toEqual(24);
+      expect(result[2].age).toBe(24);
     });
     httpBackend.flush();
   });

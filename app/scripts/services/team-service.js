@@ -7,52 +7,70 @@
   // }]
 
 angular.module('teamManagementApp')
-  .service('TeamService', ['$resource', function () {
+  .service('TeamService', function () {
 
-    this.teams = [];
+    // Initial data
+    var teams = [{
+      name: 'Java team',
+      employees: [1, 2, 3]
+    },
+    {
+      name: 'JavaScript team',
+      employees: [4, 5, 6]
+    },
+    {
+      name: 'QA team',
+      employees: [7, 8, 9]
+    }];
 
-    this.create = function (name) {
-      if (!this.contains(name)) {
+
+    this.addTeam = function (name) {
+      if (!this.exists(name)) {
         var newTeam = {
           name: name,
           employees: []
         };
-        this.teams.push(newTeam);
+        teams.push(newTeam);
       }
+      return true;
     };
 
-    this.remove = function (name) {
-      for (var i = this.teams.length - 1; i >= 0; i--) {
-        if (this.teams[i].name === name) {
-          this.teams.splice(i, 1);
+    this.removeTeam = function (name) {
+      for (var i = teams.length - 1; i >= 0; i--) {
+        if (teams[i].name === name) {
+          teams.splice(i, 1);
           // break if no duplication is allowed
           break;
         }
       }
     };
 
-    this.get = function (name) {
-      for (var i = 0; i < this.teams.length; i++) {
-        if (this.teams[i].name === name) {
-          return this.teams[i];
+    this.getTeam = function (name) {
+      for (var i = 0; i < teams.length; i++) {
+        if (teams[i].name === name) {
+          return teams[i];
         }
       }
       return null;
     };
 
-    // this.getAll = function () {
+    this.getTeams = function () {
+      return teams;
+    };
 
-    // };
+    this.setTeams = function (_teams) {
+      teams = _teams;
+    };
 
     this.addEmployee = function (name, employeeId) {
-      var team = this.get(name);
+      var team = this.getTeam(name);
       if (team && team.employees.indexOf(employeeId) === -1) {
         team.employees.push(employeeId);
       }
     };
 
     this.removeEmployee = function (name, employeeId) {
-      var team = this.get(name);
+      var team = this.getTeam(name);
       if (team) {
         var employeeIdIndex = team.employees.indexOf(employeeId);
         if (employeeIdIndex > -1) {
@@ -62,14 +80,13 @@ angular.module('teamManagementApp')
     };
 
     this.countEmployees = function (name) {
-      var team = this.get(name);
+      var team = this.getTeam(name);
       return team ? team.employees.length : null;
     };
 
-    this.contains = function (name) {
-      return this.teams.filter(function (team) {
+    this.exists = function (name) {
+      return teams.filter(function (team) {
         return team.name === name;
       }).length > 0;
     };
-
-  }]);
+  });

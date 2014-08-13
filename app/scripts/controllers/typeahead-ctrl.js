@@ -8,6 +8,9 @@
  * Controller of the teamManagementApp
  */
 angular.module('teamManagementApp')
-  .controller('TypeaheadCtrl', ['$scope', function () {
+  .controller('TypeaheadCtrl', ['$scope', function ($scope) {
     
+    // not used yet
+    $scope.selected = [];
+
   }]);

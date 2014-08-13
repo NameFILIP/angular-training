@@ -4,7 +4,7 @@ CORS https://raw2.github.com/javascript-awesome/angular-911/master/datasources/s
 Vertical scroll bar
 
 
-2. TeamService (local storage) create, get, edit, delete
+
 3. TypeaheadController
   get employees
   <!-- check scope on team block -->
@@ -24,3 +24,9 @@ Vertical scroll bar
 ## DONE 
 Fix TagManager's left border-radius
 EmployeeService ($http) get
+TeamService (local storage) create, get, edit, delete
+
+
+
+## FUTURE
+Implement LocalStorageTeamService
