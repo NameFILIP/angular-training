@@ -8,6 +8,6 @@
  * Controller of the teamManagementApp
  */
 angular.module('teamManagementApp')
-  .controller('TypeaheadCtrl', ['$scope', function ($scope) {
+  .controller('TypeaheadCtrl', ['$scope', function () {
     
   }]);

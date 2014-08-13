@@ -7,7 +7,7 @@
   // }]
 
 angular.module('teamManagementApp')
-  .service('TeamService', ['$resource', function ($resource) {
+  .service('TeamService', ['$resource', function () {
 
     this.teams = [];
 
