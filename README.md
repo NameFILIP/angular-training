@@ -3,9 +3,6 @@
   * Reviews
   * Selected team directive ?
   * Popups
-* Add team validation
-
-* Team controller
 * Typeahead view
 * Header style
 * Team list style
@@ -17,6 +14,7 @@
 * Make current tab active
 * Vertical scroll bar
 * Remove employee
+* Add team validation
 
 ## FUTURE
 * Implement LocalStorageTeamService
