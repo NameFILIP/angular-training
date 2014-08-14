@@ -1,16 +1,22 @@
 ## TODO
-* Vertical scroll bar
-* Team controller
 * Table view
+  * Reviews
+  * Selected team directive ?
+  * Popups
+* Add team validation
+
+* Team controller
 * Typeahead view
-* Popups
-* Reviews
+* Header style
+* Team list style
 
 ## DONE 
 * Fix TagManager's left border-radius
 * EmployeeService ($http) get
 * TeamService (local storage) create, get, edit, delete
 * Make current tab active
+* Vertical scroll bar
+* Remove employee
 
 ## FUTURE
 * Implement LocalStorageTeamService

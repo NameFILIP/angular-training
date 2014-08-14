@@ -120,6 +120,7 @@ angular.module('teamManagementApp')
     this.removeEmployee = function (name, employee) {
       var team = getTeam(name);
       if (team) {
+        // No need for id check, since the passed object is taken from the array
         var employeeIndex = team.employees.indexOf(employee);
         if (employeeIndex > -1) {
           team.employees.splice(employeeIndex, 1);

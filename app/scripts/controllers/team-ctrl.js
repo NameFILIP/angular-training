@@ -27,4 +27,5 @@ angular.module('teamManagementApp')
 
     $scope.addTeam = TeamService.addTeam;
     $scope.removeTeam = TeamService.removeTeam;
+    $scope.removeEmployee = TeamService.removeEmployee;
   }]);
