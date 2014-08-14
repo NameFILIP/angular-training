@@ -20,11 +20,11 @@ angular.module('teamManagementApp')
 
     $scope.teams = TeamService.getTeams();
 
-    $scope.addTeam = function (name) {
-      TeamService.addTeam(name);
+    $scope.selectedTeam = $scope.teams.length > 0 ? $scope.teams[0].name : '';
+    $scope.selectTeam = function (name) {
+      $scope.selectedTeam = name;
     };
 
-    $scope.removeTeam = function (name) {
-      TeamService.removeTeam(name);
-    };
+    $scope.addTeam = TeamService.addTeam;
+    $scope.removeTeam = TeamService.removeTeam;
   }]);

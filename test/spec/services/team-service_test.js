@@ -2,7 +2,9 @@
 
 describe('TeamService', function () {
 
-  var TeamService;
+  var TeamService,
+    maria, maxim, alena, julia, anton,
+    teams;
 
   beforeEach(function () {
     module('teamManagementApp');
@@ -12,18 +14,56 @@ describe('TeamService', function () {
     });
 
     // initialize teams with test data
-    TeamService.setTeams([{
+    maria = { 
+      id: 2,
+      name: 'Maria Sadykov',
+      age: 22,
+      grade: 'Junior',
+      job: 'Java Developer',
+    };
+    maxim = { 
+      id: 3,
+      name: 'Maxim Basisty',
+      age: 24,
+      grade: 'Junior',
+      job: 'QA Engineer'
+    };
+    alena = { 
+      id: 4,
+      name: 'Alena Reshetov',
+      age: 26,
+      grade: 'Senior',
+      job: 'NET Developer'
+    };
+    julia = { 
+      id: 14,
+      name: 'Julia Kupkin',
+      age: 21,
+      grade: 'Junior',
+      job: 'NET Developer',
+    };
+    anton = { 
+      id: 17,
+      name: 'Anton Loginov',
+      age: 27,
+      grade: 'Middle',
+      job: 'Java Developer'
+    };
+    teams = [{
       name: 'Java team',
-      employees: [1, 2, 3]
+      employees: [maria, maxim, alena]
     },
     {
       name: 'JavaScript team',
-      employees: [4, 5, 6]
+      employees: [maria, alena, anton]
     },
     {
       name: 'QA team',
-      employees: [7, 8, 9]
-    }]);
+      employees: [julia, alena, maxim]
+    }];
+
+    
+    TeamService.setTeams(teams);
   });
 
   describe('exists', function () {
@@ -55,7 +95,7 @@ describe('TeamService', function () {
     it('should get a team by name', function () {
       var jsTeam = TeamService.getTeam('JavaScript team');
       expect(jsTeam.employees.length).toBe(3);
-      expect(jsTeam.employees).toEqual([4, 5, 6]);
+      expect(jsTeam.employees).toEqual([maria, alena, anton]);
     });
 
     it('should get null if the team is not found', function () {
@@ -82,44 +122,44 @@ describe('TeamService', function () {
   });
 
   describe('addEmployee', function () {
-    it('should add employee\'s id to the team if it is not present already', function () {
-      TeamService.addEmployee('JavaScript team', 2);
+    it('should add employee to the team if it is not present already', function () {
+      TeamService.addEmployee('JavaScript team', julia);
       var jsTeam = TeamService.getTeam('JavaScript team');
       expect(jsTeam.employees.length).toBe(4);
-      expect(jsTeam.employees).toContain(2);
+      expect(jsTeam.employees).toContain(julia);
     });
 
-    it('should not add employee\'s id to the team if it is already there', function () {
-      TeamService.addEmployee('JavaScript team', 5);
+    it('should not add employee to the team if it is already there', function () {
+      TeamService.addEmployee('JavaScript team', anton);
       var jsTeam = TeamService.getTeam('JavaScript team');
       expect(jsTeam.employees.length).toBe(3);
     });
   });
 
   describe('removeEmployee', function () {
-    it('should remove employee\'s id from the team', function () {
-      TeamService.removeEmployee('QA team', 8);
+    it('should remove employee from the team', function () {
+      TeamService.removeEmployee('QA team', alena);
       var qaTeam = TeamService.getTeam('QA team');
       expect(qaTeam.employees.length).toBe(2);
-      expect(qaTeam.employees).not.toContain(8);
+      expect(qaTeam.employees).not.toContain(alena);
     });
   });
 
-  describe('countEmployees', function () {
-    it('should count employees in a team', function () {
-      var jsEmployeesSize = TeamService.countEmployees('JavaScript team');
-      expect(jsEmployeesSize).toBe(3);
+  // describe('countEmployees', function () {
+  //   it('should count employees in a team', function () {
+  //     var jsEmployeesSize = TeamService.countEmployees('JavaScript team');
+  //     expect(jsEmployeesSize).toBe(3);
 
-      TeamService.addEmployee('JavaScript team', 10);
+  //     TeamService.addEmployee('JavaScript team', 10);
 
-      jsEmployeesSize = TeamService.countEmployees('JavaScript team');
-      expect(jsEmployeesSize).toBe(4);
-    });
+  //     jsEmployeesSize = TeamService.countEmployees('JavaScript team');
+  //     expect(jsEmployeesSize).toBe(4);
+  //   });
 
-    it('should return null if there is no such team', function () {
-      var otherEmployeesSize = TeamService.countEmployees('Some other team');
-      expect(otherEmployeesSize).toBeNull();
-    });
-  });
+  //   it('should return null if there is no such team', function () {
+  //     var otherEmployeesSize = TeamService.countEmployees('Some other team');
+  //     expect(otherEmployeesSize).toBeNull();
+  //   });
+  // });
 
 });

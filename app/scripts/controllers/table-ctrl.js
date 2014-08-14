@@ -8,9 +8,8 @@
  * Controller of the teamManagementApp
  */
 angular.module('teamManagementApp')
-  .controller('TableCtrl', ['$scope', function ($scope) {
+  .controller('TableCtrl', ['$scope', 'TeamService', function ($scope, TeamService) {
 
-    // not used yet
-    $scope.filter = '';
+    $scope.addEmployee = TeamService.addEmployee;
 
   }]);
