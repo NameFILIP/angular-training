@@ -22,10 +22,18 @@ angular.module('teamManagementApp')
 
     $scope.selectedTeam = $scope.teams.length > 0 ? $scope.teams[0].name : '';
     $scope.selectTeam = function (name) {
-      $scope.selectedTeam = name;
+      // XXX if clicked on the selectected team - unselect it (collapsed)
+      // TODO think about directive that checks if 'in' class is present
+      $scope.selectedTeam = $scope.selectedTeam !== name ? name : '';
     };
 
+    // if removing selected team - unselect it
+    $scope.removeTeam = function (name) {
+      if (name === $scope.selectedTeam) {
+        $scope.selectedTeam = '';
+      }
+      TeamService.removeTeam(name);
+    };
     $scope.addTeam = TeamService.addTeam;
-    $scope.removeTeam = TeamService.removeTeam;
     $scope.removeEmployee = TeamService.removeEmployee;
   }]);

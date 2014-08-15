@@ -32,3 +32,12 @@ html {
 #team-accordion .list-group .list-group-item {
   padding-left: 30px;
 }
+
+/* id attribute starts with */
+[id^=review-collapse] {
+  height: 150px;
+}
+
+#review-accordion thead th { 
+  width: 25%; 
+}
