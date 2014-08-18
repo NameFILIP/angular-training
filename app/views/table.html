@@ -1,7 +1,7 @@
 <div class="form-inline filter-form">
   <div class="form-group">
     <label for="filter" class="sr-only">Filter</label>
-    <input type="text" id="filter" class="form-control" ng-model="filter" placeholder="Filter">
+    <input type="text" id="filter" class="form-control" ng-model="filterField" placeholder="Filter">
   </div>
 </div>
 
@@ -16,7 +16,7 @@
   </thead>
   <!-- class "panel" is added to make the bootstrap's collapse work -->
   <tbody class="panel">
-    <tr data-toggle="collapse" data-parent="#review-accordion" data-target="#review-collapse{{ $index }}" ng-repeat-start="emp in employees | filter:filter | filter:paginate">
+    <tr data-toggle="collapse" data-parent="#review-accordion" data-target="#review-collapse{{ $index }}" ng-repeat-start="emp in employees | filter:filterField | pagination:paginationState">
       <td><a href="" ng-click="addEmployee(selectedTeam, emp)">{{ emp.name }}</a></td>
       <td>{{ emp.job }}</td>
       <td>{{ emp.age }}</td>
@@ -31,5 +31,5 @@
   </tbody>
 </table>
 <div class="text-center">
-  <pagination total-items="totalItems" ng-model="currentPage" max-size="5" boundary-links="true" items-per-page="numPerPage" class="pagination"></pagination>
+  <pagination total-items="paginationState.totalItems" ng-model="paginationState.currentPage" max-size="5" boundary-links="true" items-per-page="paginationState.numPerPage" class="pagination"></pagination>
 </div>

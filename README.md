@@ -1,6 +1,6 @@
 ## TODO
 * Table view
-  * Fix pagination filter
+  * sort?
   * Reviews
   * Popups
 * Typeahead view
@@ -19,6 +19,7 @@
 * Vertical scroll bar
 * Remove employee
 * Add team validation
+* Add pagination filter
 
 ## FUTURE
 * Implement LocalStorageTeamService
