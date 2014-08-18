@@ -8,15 +8,15 @@
 <table id="review-accordion" class="table table-bordered table-hover">
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Job title</th>
-      <th>Age</th>
-      <th>Grade</th>
+      <th><a href="" ng-click="setSortState('name')">Name</a></th>
+      <th><a href="" ng-click="setSortState('job')">Job title</a></th>
+      <th><a href="" ng-click="setSortState('age')">Age</a></th>
+      <th><a href="" ng-click="setSortState('grade')">Grade</a></th>
     </tr>
   </thead>
   <!-- class "panel" is added to make the bootstrap's collapse work -->
   <tbody class="panel">
-    <tr data-toggle="collapse" data-parent="#review-accordion" data-target="#review-collapse{{ $index }}" ng-repeat-start="emp in employees | filter:filterField | pagination:paginationState">
+    <tr data-toggle="collapse" data-parent="#review-accordion" data-target="#review-collapse{{ $index }}" ng-repeat-start="emp in employees | filter:filterField | orderBy:sortState.column:sortState.reverse| pagination:paginationState">
     <!-- $event.stopPropagation() - to not open the reviews pane when clicked on the name -->
       <td><a href="" ng-click="addEmployee(selectedTeam, emp); $event.stopPropagation();">{{ emp.name }}</a></td>
       <td>{{ emp.job }}</td>
@@ -24,10 +24,40 @@
       <td>{{ emp.grade }}</td>
     </tr>
     <tr id="review-collapse{{ $index }}" class="collapse" ng-repeat-end>
-    <form>
-      <td>Author</td>
-      <td colspan="3">Review</td>
-    </form>
+      <td colspan="4">
+        <form role="form">
+          <table class="table reviews-table">
+            <tfoot>
+              <tr>
+                <td>
+                  <div class="form-group">
+                    <label class="sr-only" for="author{{ $index }}">Author</label>
+                    <input type="text" id="author{{ $index }}" class="form-control input-sm" ng-model="author" placeholder="Author" required>
+                  </div>
+                </td>
+                <td>
+                  <div class="form-group">
+                    <label class="sr-only" for="review{{ $index }}">Author</label>
+                    <textarea id="review{{ $index }}" class="form-control input-sm" ng-model="review" placeholder="Review" required rows="2"></textarea>
+                  </div>
+                </td>
+                <td>
+                  <button type="submit" class="btn btn-default btn-sm" ng-click="addReview(emp, author, review)">Submit</button>
+                </td>
+              </tr>
+            </tfoot>
+            <tbody>
+              <tr ng-repeat="rev in emp.reviews">
+                <td>{{ rev.author }}</td>
+                <td>{{ rev.review }}</td>
+                <td>
+                  <span class="glyphicon glyphicon-minus" ng-click="removeReview(emp, rev)"></span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </form>
+      </td>
     </tr>
   </tbody>
 </table>

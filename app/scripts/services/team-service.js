@@ -127,10 +127,4 @@ angular.module('teamManagementApp')
         }
       }
     };
-
-    // this.countEmployees = function (name) {
-    //   var team = getTeam(name);
-    //   return team ? team.employees.length : null;
-    // };
-    
   });

@@ -67,13 +67,15 @@
         <!-- Team panel -->
         <div class="col-sm-3">
 
-          <form class="form-inline add-team-form" name="addTeamForm" novalidate role="form">
-            <div class="form-group input-group full-size-input">
-              <input type="text" id="addTeam" class="form-control" name="addTeamInput" ng-model="newTeamName" required ng-pattern="/^[a-zA-Z0-9 ]+$/" placeholder="Add new team">
+          <form class="add-team-form" name="addTeamForm" novalidate role="form">
+            <div class="form-group">
               <label for="addTeam" class="sr-only">Add team</label>
-              <span class="input-group-btn">
-                <button type="submit" class="btn btn-default" ng-click="addTeam(newTeamName)" ng-disabled="addTeamForm.addTeamInput.$invalid">+</button>
-              </span>
+              <div class="input-group">
+                <input type="text" id="addTeam" class="form-control" name="addTeamInput" ng-model="newTeamName" required ng-pattern="/^[a-zA-Z0-9 ]+$/" placeholder="Add new team">
+                <span class="input-group-btn">
+                  <button type="submit" class="btn btn-default" ng-click="addTeam(newTeamName)" ng-disabled="addTeamForm.addTeamInput.$invalid">+</button>
+                </span>
+            </div>
             </div>
           </form>
 
@@ -136,6 +138,7 @@
     <script src="scripts/app.js"></script>
     <script src="scripts/services/employee-service.js"></script>
     <script src="scripts/services/team-service.js"></script>
+    <script src="scripts/services/review-service.js"></script>
     <script src="scripts/filters/pagination-filter.js"></script>
     <script src="scripts/controllers/team-ctrl.js"></script>
     <script src="scripts/controllers/typeahead-ctrl.js"></script>

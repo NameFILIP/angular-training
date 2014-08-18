@@ -11,9 +11,9 @@ html {
 }
 
 /* Overrides .form-inline .input-group .input-group-btn (width: auto)*/
-.form-inline .full-size-input .input-group-btn {
+/*.form-inline .full-size-input .input-group-btn {
   width: 1%;
-}
+}*/
 
 .filter-form {
   margin-top: 20px;
@@ -33,11 +33,15 @@ html {
   padding-left: 30px;
 }
 
-/* id attribute starts with */
-[id^=review-collapse] {
-  height: 150px;
-}
-
 #review-accordion thead th { 
   width: 25%; 
+}
+
+.reviews-table {
+  margin-bottom: 0;
+}
+
+.reviews-table td:first-child, 
+.reviews-table td:last-child {
+  width: 25%;
 }

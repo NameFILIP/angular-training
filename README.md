@@ -1,7 +1,5 @@
 ## TODO
 * Table view
-  * sort?
-  * Reviews
   * Popups
 * Typeahead view
 * Header style
@@ -26,3 +24,5 @@
 * CORS https://raw2.github.com/javascript-awesome/angular-911/master/datasources/staff.json
 * Add selectedTeam directive
 * Remove Flash of unstyled content (FOUC)
+* Reviews transition
+* Column Sort
