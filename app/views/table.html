@@ -17,7 +17,8 @@
   <!-- class "panel" is added to make the bootstrap's collapse work -->
   <tbody class="panel">
     <tr data-toggle="collapse" data-parent="#review-accordion" data-target="#review-collapse{{ $index }}" ng-repeat-start="emp in employees | filter:filterField | pagination:paginationState">
-      <td><a href="" ng-click="addEmployee(selectedTeam, emp)">{{ emp.name }}</a></td>
+    <!-- $event.stopPropagation() - to not open the reviews pane when clicked on the name -->
+      <td><a href="" ng-click="addEmployee(selectedTeam, emp); $event.stopPropagation();">{{ emp.name }}</a></td>
       <td>{{ emp.job }}</td>
       <td>{{ emp.age }}</td>
       <td>{{ emp.grade }}</td>
