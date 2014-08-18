@@ -13,7 +13,7 @@ describe('ReviewService', function () {
       ReviewService = _ReviewService_;
     });
 
-    // initialize teams with test data
+    // initialize the test data
     
     maxim = { 
       id: 3,
@@ -45,7 +45,6 @@ describe('ReviewService', function () {
       reviews: [paulReview, jackReview, addyReview]
     };
     
-
   });
 
   describe('addReview', function () {

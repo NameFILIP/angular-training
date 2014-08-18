@@ -8,7 +8,6 @@
 
 * _check ui-router vs directive_
 
-
 ## DONE 
 * Fix TagManager's left border-radius
 * EmployeeService ($http) get
@@ -18,6 +17,7 @@
 * Remove employee
 * Add team validation
 * Add pagination filter
+* Column Sort
 
 ## FUTURE
 * Implement LocalStorageTeamService
@@ -25,4 +25,3 @@
 * Add selectedTeam directive
 * Remove Flash of unstyled content (FOUC)
 * Reviews transition
-* Column Sort
