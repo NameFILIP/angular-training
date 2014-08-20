@@ -81,7 +81,7 @@
 
           <div class="panel-group" id="team-accordion">
             
-            <div class="panel panel-default" ng-repeat="team in teams">
+            <div class="panel" ng-class="isSelected(team) ? 'panel-info' : 'panel-default'" ng-repeat="team in teams">
               <div class="panel-heading">
                 <a href="" data-toggle="collapse" data-parent="#team-accordion" data-target="#team-collapse{{ $index }}" ng-click="selectTeam(team.name)">
                   {{ team.name }} <small>({{ team.employees.length }})</small>

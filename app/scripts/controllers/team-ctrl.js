@@ -34,6 +34,11 @@ angular.module('teamManagementApp')
       }
       TeamService.removeTeam(name);
     };
+
+    $scope.isSelected = function (team) {
+      return team.name === $scope.selectedTeam;
+    };
+
     $scope.addTeam = TeamService.addTeam;
     $scope.removeEmployee = TeamService.removeEmployee;
   }]);

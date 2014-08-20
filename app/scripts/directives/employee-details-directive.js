@@ -9,6 +9,7 @@ angular.module('teamManagementApp')
       },
       link: {
         pre: function (scope, element) {
+          element.attr('data-delay', '250');
           element.attr('data-html', 'true');
           element.attr('data-placement', 'bottom');
           element.attr('data-toggle', 'tooltip');
