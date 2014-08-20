@@ -1,10 +1,8 @@
 ## TODO
 * Table view
-  * Popups
 * Typeahead view
 * Header style
 * Team list style
-* pagination filter func vs angular filter
 
 * _check ui-router vs directive_
 
@@ -18,10 +16,10 @@
 * Add team validation
 * Add pagination filter
 * Column Sort
+* Popups
 
 ## FUTURE
 * Implement LocalStorageTeamService
 * CORS https://raw2.github.com/javascript-awesome/angular-911/master/datasources/staff.json
-* Add selectedTeam directive
 * Remove Flash of unstyled content (FOUC)
 * Reviews transition

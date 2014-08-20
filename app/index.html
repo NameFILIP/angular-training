@@ -90,7 +90,8 @@
               </div>
               <ul id="team-collapse{{ $index }}" class="list-group panel-collapse collapse" ng-class="{in: $first}">
                 <li class="list-group-item" ng-repeat="emp in team.employees">
-                  {{ emp.name }} <span class="glyphicon glyphicon-minus pull-right" ng-click="removeEmployee(team.name, emp)"></span>
+                  <span employee-details="emp" ng-bind="emp.name"></span>
+                  <span class="glyphicon glyphicon-minus pull-right" ng-click="removeEmployee(team.name, emp)"></span>
                 </li>
               </ul>
             </div>
@@ -136,13 +137,15 @@
 
     <!-- build:js({.tmp,app}) scripts/scripts.js -->    
     <script src="scripts/app.js"></script>
-    <script src="scripts/services/employee-service.js"></script>
-    <script src="scripts/services/team-service.js"></script>
-    <script src="scripts/services/review-service.js"></script>
-    <script src="scripts/filters/pagination-filter.js"></script>
     <script src="scripts/controllers/team-ctrl.js"></script>
     <script src="scripts/controllers/typeahead-ctrl.js"></script>
     <script src="scripts/controllers/table-ctrl.js"></script>
+    <script src="scripts/directives/employee-details-directive.js"></script>
+    <script src="scripts/filters/pagination-filter.js"></script>
+    <script src="scripts/services/employee-service.js"></script>
+    <script src="scripts/services/team-service.js"></script>
+    <script src="scripts/services/review-service.js"></script>
+    
     <!-- endbuild -->       
 </body>
 </html>
