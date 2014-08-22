@@ -18,7 +18,7 @@
   <tbody class="panel">
     <tr data-toggle="collapse" data-parent="#review-accordion" data-target="#review-collapse{{ $index }}" ng-repeat-start="emp in employees | filter:filterField | orderBy:sortState.column:sortState.reverse| pagination:paginationState">
     <!-- $event.stopPropagation() - to not open the reviews pane when clicked on the name -->
-      <td><a href="" ng-click="addEmployee(selectedTeam, emp); $event.stopPropagation();" employee-details="emp">{{ emp.name }}</a></td>
+      <td><a href="" ng-click="addEmployee(selectedTeam.name, emp); $event.stopPropagation();" employee-details="emp">{{ emp.name }}</a></td>
       <td>{{ emp.job }}</td>
       <td>{{ emp.age }}</td>
       <td>{{ emp.grade }}</td>
