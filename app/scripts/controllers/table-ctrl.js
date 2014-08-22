@@ -28,7 +28,7 @@ angular.module('teamManagementApp')
     };
 
     $scope.paginationState = {
-      totalItems: $scope.employees.length,
+      totalItems: $scope.employees && $scope.employees.length,
       currentPage: 1,
       numPerPage: 10
     };
