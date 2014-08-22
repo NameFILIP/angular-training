@@ -9,7 +9,7 @@
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
-    <link rel="stylesheet" href="bower_components/bootstrap-tagsinput/dist/bootstrap-tagsinput.css" />
+    <link rel="stylesheet" href="bower_components/ng-tags-input/ng-tags-input.min.css" />
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
@@ -83,19 +83,18 @@
             
             <div class="panel" ng-class="isSelected(team) ? 'panel-info' : 'panel-default'" ng-repeat="team in teams">
               <div class="panel-heading">
-                <a href="" data-toggle="collapse" data-parent="#team-accordion" data-target="#team-collapse{{ $index }}" ng-click="selectTeam(team.name)">
+                <a href="" data-toggle="collapse" data-parent="#team-accordion" data-target="#team-collapse{{ $index }}" ng-click="selectTeam(team)">
                   {{ team.name }} <small>({{ team.employees.length }})</small>
                 </a>
-                <span class="glyphicon glyphicon-trash pull-right" ng-click="removeTeam(team.name)"></span>
+                <span class="glyphicon glyphicon-trash pull-right" ng-click="removeTeam(team)"></span>
               </div>
-              <ul id="team-collapse{{ $index }}" class="list-group panel-collapse collapse" ng-class="{in: $first}">
+              <ul id="team-collapse{{ $index }}" class="list-group panel-collapse collapse">
                 <li class="list-group-item" ng-repeat="emp in team.employees">
                   <span employee-details="emp" ng-bind="emp.name"></span>
                   <span class="glyphicon glyphicon-minus pull-right" ng-click="removeEmployee(team.name, emp)"></span>
                 </li>
               </ul>
             </div>
-
           </div>
         </div>
       
@@ -129,9 +128,8 @@
     <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
     <script src="bower_components/angular-resource/angular-resource.js"></script>
     <script src="bower_components/angular-route/angular-route.js"></script>
-    <script src="bower_components/typeahead.js/dist/typeahead.bundle.js"></script>
-    <script src="bower_components/bootstrap-tagsinput/dist/bootstrap-tagsinput.js"></script>
     <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script src="bower_components/ng-tags-input/ng-tags-input.min.js"></script>
     <!-- endbower -->    
     <!-- endbuild -->    
 
@@ -141,6 +139,7 @@
     <script src="scripts/controllers/typeahead-ctrl.js"></script>
     <script src="scripts/controllers/table-ctrl.js"></script>
     <script src="scripts/directives/employee-details-directive.js"></script>
+    <!-- <script src="scripts/directives/bootstrap-tagsinput-directive.js"></script> -->
     <script src="scripts/filters/pagination-filter.js"></script>
     <script src="scripts/services/employee-service.js"></script>
     <script src="scripts/services/team-service.js"></script>

@@ -20,23 +20,23 @@ angular.module('teamManagementApp')
 
     $scope.teams = TeamService.getTeams();
 
-    $scope.selectedTeam = $scope.teams.length > 0 ? $scope.teams[0].name : '';
-    $scope.selectTeam = function (name) {
+    $scope.selectedTeam = '';//$scope.teams.length > 0 ? $scope.teams[0].name : '';
+    $scope.selectTeam = function (team) {
       // XXX if clicked on the selectected team - unselect it (collapsed)
       // TODO think about directive that checks if 'in' class is present
-      $scope.selectedTeam = $scope.selectedTeam !== name ? name : '';
+      $scope.selectedTeam = $scope.selectedTeam !== team ? team : '';
     };
 
     // if removing selected team - unselect it
-    $scope.removeTeam = function (name) {
-      if (name === $scope.selectedTeam) {
+    $scope.removeTeam = function (team) {
+      if (team === $scope.selectedTeam) {
         $scope.selectedTeam = '';
       }
-      TeamService.removeTeam(name);
+      TeamService.removeTeam(team.name);
     };
 
     $scope.isSelected = function (team) {
-      return team.name === $scope.selectedTeam;
+      return team === $scope.selectedTeam;
     };
 
     $scope.addTeam = TeamService.addTeam;

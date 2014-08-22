@@ -8,9 +8,21 @@
  * Controller of the teamManagementApp
  */
 angular.module('teamManagementApp')
-  .controller('TypeaheadCtrl', ['$scope', function ($scope) {
+  .controller('TypeaheadCtrl', ['$scope', '$q', '$filter', function ($scope, $q, $filter) {
     
-    // not used yet
-    $scope.selected = [];
+    $scope.$watch('selectedTeam', function () {
+      $scope.tags = $scope.selectedTeam && $scope.selectedTeam.employees.slice();
+    });
+
+    $scope.filterValues = function (query) {
+        var deferred = $q.defer();
+        var filtered = $filter('filter')($scope.employees, query);
+        deferred.resolve(filtered);
+        return deferred.promise;
+    };
+
+    $scope.refreshTeam = function () {
+      $scope.selectedTeam.employees = $scope.tags.slice();
+    };
 
   }]);
