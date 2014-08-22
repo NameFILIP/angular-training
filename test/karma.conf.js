@@ -26,6 +26,7 @@ module.exports = function(config) {
       'bower_components/bootstrap/dist/js/bootstrap.js',
       'bower_components/angular-bootstrap/ui-bootstrap-tpls.js',
       'bower_components/ng-tags-input/ng-tags-input.js',
+      'bower_components/angular-ui-router/release/angular-ui-router.js',
       'app/scripts/**/*.js',
       'test/mock/**/*.js',
       'test/spec/**/*.js'

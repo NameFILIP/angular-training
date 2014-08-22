@@ -3,55 +3,7 @@
 angular.module('teamManagementApp')
   .service('TeamService', function () {
 
-    // Initial data
-
-    var maria = { 
-      id: 2,
-      name: 'Maria Sadykov',
-      age: 22,
-      grade: 'Junior',
-      job: 'Java Developer',
-    };
-    var maxim = { 
-      id: 3,
-      name: 'Maxim Basisty',
-      age: 24,
-      grade: 'Junior',
-      job: 'QA Engineer'
-    };
-    var alena = { 
-      id: 4,
-      name: 'Alena Reshetov',
-      age: 26,
-      grade: 'Senior',
-      job: 'NET Developer'
-    };
-    var julia = { 
-      id: 14,
-      name: 'Julia Kupkin',
-      age: 21,
-      grade: 'Junior',
-      job: 'NET Developer',
-    };
-    var anton = { 
-      id: 17,
-      name: 'Anton Loginov',
-      age: 27,
-      grade: 'Middle',
-      job: 'Java Developer'
-    };
-    var teams = [{
-      name: 'Java team',
-      employees: [maria, maxim, alena]
-    },
-    {
-      name: 'JavaScript team',
-      employees: [maria, alena, anton]
-    },
-    {
-      name: 'QA team',
-      employees: [julia, alena, maxim]
-    }];
+    var teams = [];
 
     // Helper functions
 

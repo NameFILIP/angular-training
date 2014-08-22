@@ -11,7 +11,7 @@ angular.module('teamManagementApp')
   .controller('TypeaheadCtrl', ['$scope', '$q', '$filter', function ($scope, $q, $filter) {
     
     $scope.$watch('selectedTeam', function () {
-      $scope.tags = $scope.selectedTeam && $scope.selectedTeam.employees.slice();
+      $scope.tags = $scope.selectedTeam.employees && $scope.selectedTeam.employees.slice();
     });
 
     $scope.filterValues = function (query) {

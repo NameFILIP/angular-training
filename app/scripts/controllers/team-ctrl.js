@@ -8,29 +8,35 @@
  * Controller of the teamManagementApp
  */
 angular.module('teamManagementApp')
-  .controller('TeamCtrl', ['$scope', '$location', 'EmployeeService', 'TeamService', function ($scope, $location, EmployeeService, TeamService) {
+  .controller('TeamCtrl', ['$scope', '$location', '$resource', 'EmployeeService', 'TeamService', function ($scope, $location, $resource, EmployeeService, TeamService) {
     
-    $scope.isActive = function(path) {
-      return $location.path() === path;
-    };
+    $scope.teams = [];
+
+    // Load initial test data
+    $resource('/data/teams.json').query(function (result) {
+      TeamService.setTeams(result);
+      $scope.teams = TeamService.getTeams();
+    });
 
     EmployeeService.query(function (result) {
       $scope.employees = result;
     });
 
-    $scope.teams = TeamService.getTeams();
+    $scope.isActive = function(path) {
+      return $location.path() === path;
+    };
 
-    $scope.selectedTeam = '';//$scope.teams.length > 0 ? $scope.teams[0].name : '';
+    $scope.selectedTeam = {};
     $scope.selectTeam = function (team) {
       // XXX if clicked on the selectected team - unselect it (collapsed)
       // TODO think about directive that checks if 'in' class is present
-      $scope.selectedTeam = $scope.selectedTeam !== team ? team : '';
+      $scope.selectedTeam = $scope.selectedTeam !== team ? team : {};
     };
 
     // if removing selected team - unselect it
     $scope.removeTeam = function (team) {
       if (team === $scope.selectedTeam) {
-        $scope.selectedTeam = '';
+        $scope.selectedTeam = {};
       }
       TeamService.removeTeam(team.name);
     };

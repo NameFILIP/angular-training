@@ -1,0 +1,80 @@
+[
+   {
+      "name":"Java team",
+      "employees":[
+         {
+            "id":2,
+            "name":"Maria Sadykov",
+            "age":22,
+            "grade":"Junior",
+            "job":"Java Developer"
+         },
+         {
+            "id":3,
+            "name":"Maxim Basisty",
+            "age":24,
+            "grade":"Junior",
+            "job":"QA Engineer"
+         },
+         {
+            "id":4,
+            "name":"Alena Reshetov",
+            "age":26,
+            "grade":"Senior",
+            "job":"NET Developer"
+         }
+      ]
+   },
+   {
+      "name":"JavaScript team",
+      "employees":[
+         {
+            "id":2,
+            "name":"Maria Sadykov",
+            "age":22,
+            "grade":"Junior",
+            "job":"Java Developer"
+         },
+         {
+            "id":4,
+            "name":"Alena Reshetov",
+            "age":26,
+            "grade":"Senior",
+            "job":"NET Developer"
+         },
+         {
+            "id":17,
+            "name":"Anton Loginov",
+            "age":27,
+            "grade":"Middle",
+            "job":"Java Developer"
+         }
+      ]
+   },
+   {
+      "name":"QA team",
+      "employees":[
+         {
+            "id":14,
+            "name":"Julia Kupkin",
+            "age":21,
+            "grade":"Junior",
+            "job":"NET Developer"
+         },
+         {
+            "id":4,
+            "name":"Alena Reshetov",
+            "age":26,
+            "grade":"Senior",
+            "job":"NET Developer"
+         },
+         {
+            "id":3,
+            "name":"Maxim Basisty",
+            "age":24,
+            "grade":"Junior",
+            "job":"QA Engineer"
+         }
+      ]
+   }
+]
