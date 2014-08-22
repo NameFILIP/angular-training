@@ -1,10 +1,4 @@
 ## TODO
-* Table view
-* Typeahead view
-* Header style
-* Team list style
-
-* _check ui-router vs directive_
 
 ## DONE 
 * Fix TagManager's left border-radius
@@ -17,6 +11,10 @@
 * Add pagination filter
 * Column Sort
 * Popups
+* Table view
+* Typeahead view
+* Header style
+* Team list style
 
 ## FUTURE
 * Implement LocalStorageTeamService
